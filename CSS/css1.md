@@ -10,7 +10,7 @@ HTMLがページのコンテンツを記述するための言語なのに対し�
 
 index.html  
 ```
-<p style="color: #ff0000;">ねこ</p>
+<p style="color: red;">ねこ</p>
 ```  
 ねこが赤くなる
 
@@ -18,7 +18,7 @@ index.html
 ```
 <p>ぞう</p>
 <style>
-  p{color: #ff0000;}
+  p{color: blue;}
 </style> 
 ```  
 ぞうが赤くなる
@@ -33,8 +33,25 @@ style.cssをhtmlと同じ場所につくろう！
 
 拡張子は.css  
 
+style.css  
+```
+p {
+color: #ff0000;
+}
+```  
 
-## CSSの書き方の流れ
+cssの外部ファイルを読み込もう！  
+headに書こう！  
+
+index.html  
+```
+<link rel="stylesheet" href="style.css">　
+```  
+
+ねこの色がかわることを確認する  
+
+
+## CSSのクラス属性
 
 HTMLのタグにCSSのクラスを当てることでデザインを加えることができます。  
 しかし、結構ややこしいので、実際にやりながら見てみましょう！  
@@ -73,51 +90,6 @@ index.html
 </body>
 </html>
 ```
-
-
-**背景色を指定する background-color**  
-
-背景色  
-```
-background-color:red;
-```  
-redの部分を好きな色に変えられる  
-
-
-htmlと同じ階層にstyle.cssを作る  
-ここにCSSを当てていきます。  
-CSSのコードは以下の形で背景色をつけていきます。
-
-sytle.css  
-```
-.wrapper{
-    background-color: hotpink;
-}
-
-.top{
-    background-color: brown;
-}
-
-.portfolio{
-    background-color: blue;
-}
-
-.whoami{
-    background-color: blueviolet;
-}
-
-.contact{
-    background-color: chartreuse;
-}
-
-```  
-
-
-cssの外部ファイルを読み込もう！  
-headに書こう！
-```
-<link rel="stylesheet" href="style.css">
-```  
 
 
 **class属性を追加する**  
@@ -176,6 +148,45 @@ index.html
 </html>
 ```  
 
+
+
+
+**背景色を指定する background-color**  
+クラス属性を可視化するために背景色をつける  
+
+背景色  
+```
+background-color:red;
+```  
+redの部分を好きな色に変えられる  
+
+CSSのコードは以下の形で背景色をつけていきます。
+
+sytle.css  
+```
+.wrapper{
+    background-color: hotpink;
+}
+
+.top{
+    background-color: brown;
+}
+
+.portfolio{
+    background-color: blue;
+}
+
+.whoami{
+    background-color: blueviolet;
+}
+
+.contact{
+    background-color: chartreuse;
+}
+
+```  
+
+
 classがわかったでしょうか？  
 背景色をつけるとグループ分けがわかりやすいですね！  
 
@@ -207,7 +218,7 @@ html {
   font-family: sans-serif;
 }
 ```  
-デフォはゴシックなので変化はないが、serifにすると変化するので確かめてみてください。  
+デフォルトはゴシックなので変化はないが、serifにすると変化するので確かめてみてください。  
 
 
 **フォントサイズ font-size: 20px;**  
@@ -228,15 +239,45 @@ p {
 ## px % em
 px
 コンピュータディスプレイの解像度の点の大きさ  
-20oxは20個分  
+20oxは20個分のドット  
+この単位は環境によって変化しない絶対単位
 
 %
 スタイルを適用しないときの幅やフォントサイズと比べて何%の大きさで表示させるか  
+親要素が10pxのフォントのとき子要素で300%にすると3倍の大きさになる  
+
 
 em
-要素に設定されたフォントサイズ  
+emは文字の高さを基準とした単位です。
+「エム」と読む  
+emは使われている書体（フォント）や、CSSで指定している文字の大きさによって変化する相対単位です。
+例えば文字の大きさを10pxにしていたなら、1emは10pxということになり、30pxを指定していたなら、1emは30pxに変化します。
 
-pxか%で雰囲気でいきこう！(一番よくない)  
+pxか%で雰囲気でいこう！(一番よくない)  
+
+
+## 親要素、子要素  
+
+![image](https://user-images.githubusercontent.com/44164993/91327998-3df06f00-e801-11ea-9b97-f3a7809fc5d8.png)  
+
+
+
+```
+<div class="oyayouso">
+<div class="koyouso">
+  習近平
+</div>
+</div>
+```  
+
+```
+.oyayouso {
+  font-size: 10px;
+}
+.koyouso {
+  font-size: 300%;
+}
+```  
 
 
 ## CSSのボックスモデル  
@@ -252,46 +293,51 @@ pxか%で雰囲気でいきこう！(一番よくない)
 
 ## ロゴを真ん中に配置する  
 
+```
 .top{
-  margin: 50px 0 40px 0;
+  margin: 0 0 40px 0;
   line-height: 0;
   text-align: center;
 }
+```  
+
 **text-align**  
 
 テキストでも画像でも揃えられる 
+```
 text-align: center;
+```  
 center left rigntなどある 
 
 **margin: 上 右 下 左;**  
 
 4辺のマージンの大きさを1行で設定できるmarginプロパティ  
+余白だね  
 
 
 ## ナビゲーションバーをつくろう
 
+
 htmlの中  
 ```
+</head>
+<body>
 <div class="wrapper">
-    <div class="portfolio"> <!--ここ-->
-        <h1>ポートフォリオだよ</h1>
-    </div>
-
 <!--ここから-->
-<nav class="nav">
-  <ul>
-    <li>Top</li>
-    <li>Portfolio</li>
-    <li>Whoami</li>
-    <li>Contact</li>
-  </ul>
-</nav>
-<!--ここまで-->
+  <nav class="nav">
+    <ul>
+      <li>Top</a></li>
+      <li>Portfolio</a></li>
+      <li>Whoami</a></li>
+      <li>Works</a></li>
+      <li>Contact</a></li>
+    </ul>
+  </nav>
+  <!--ここまで-->
 
-<div class="whoami">　<!--ここ-->
-        <h2>whoami自己紹介</h2>
-        <p>私は公立千歳科学技術大学の科技大太郎だよ。<br> なんつって</p>
-    </div>
+    <div class="top" id="top">　<!--ここ-->
+      <h2>logoロゴ</h2>
+  
 ```  
 ナビゲーションバーができた！  
 
@@ -305,10 +351,12 @@ padding-right: 30px;
 ```  
 **display: inline**  
 インラインボックスとして表示  
+インラインボックスは要素を1行ずつボックスにし折り返して表示します。  
+ブロックと違い改行はされないため、インラインボックスを続けて記載すると、ブラウザ横幅まで横並びに表示されます。  
 
 **list-style-type**  
 
-list-style-type:none;でナビゲーションバーのリスト  
+list-style-type:none;でナビゲーションバーのリストを消す  
 ・あいう
 ・えおか
 ・きくけ
@@ -328,17 +376,6 @@ padding right: 30px;
 }
 ```    
 
-
-???いらないかな？  
-## 背景画像の指定  
-.nav ul{
-  margin: 0 0 0 0;
-  padding: 20px 10px 15px 20px;
-  background-image: url(../img/back.png);
-  background-repeat: repeat-x; //いらない  
-}
-???
-
 ## ナビゲーションバーのリンクの色を変える  
 まずナビゲーションバーの遷移先を作ろう！  
 ```
@@ -351,6 +388,8 @@ padding right: 30px;
   </ul>
 </nav>
 ```  
+
+idをつけよう！  
 ```
 <div>class="top" id="top"</div>
 <div>class="portfolio" id="portfolio"</div>
@@ -388,9 +427,9 @@ a:active　：クリック中のリンク
 
 
 ## フッターを作成  
-
-著作権みたいなお作法  
-作った人や作った西暦を書く  
+foot、足の部分、つまり下  
+フッターはサイトを見ていった時、最後に現れる場所なのでそれに合わせた中身にしましょう。  
+例えば、会社名やメニュー、コピーライト表記などです。  
 
 index.html  
 ```
@@ -398,6 +437,8 @@ index.html
   <p>&copy:2020 Copyright CISTLT. ALL rights reserved</p>
 </footer>
 ```  
+
+&copyで©マークになる  
 
 style.css  
 ```
@@ -409,8 +450,7 @@ style.css
   color: red;
 }
 ```  
-
-???最大幅の確認ができていない  
+ 
 ## ページの最大幅の設定  
 
 ページの最大幅を設定して、ウインドウ中央に配置する  
@@ -427,9 +467,12 @@ max-width: 960px;
 
 ```  
 wrapperのbackground-color: hotpink;を  
+```
 body{
   background-color: hotpink;
 }
+```  
+
 に書き換える  
 
 左右のマージンをautoにするとページが中央ぞろえになる  
@@ -443,9 +486,12 @@ max-widthプロパティは、ボックスの最大幅を設定するのに使�
 
 自己紹介の下にworksをつくる  
 ```
-<div class="works" id="works">
-      <img src="3.jpg" alt="" class=works-img>
+<div>
+      <h2 id="works">works</h2>
+      <div class="works">
+      <img src="3.jpg" alt="" class="works-img">
       <p class="works-p">これはCISTLTサークルのホームページです。サークルメンバーでチーム開発をしました。React.jsをつかっています。</p>
+      </div>
 </div>
 ```  
 
@@ -463,6 +509,8 @@ max-widthプロパティは、ボックスの最大幅を設定するのに使�
 }
 
 ```
+display:blocksでブロック要素に変えられる  
+画像はインライン要素なため、ブロック要素としてあげるとフレックスボックスを使ったときなどに便利  
 
 
 画像とテキストを横に並べる  
@@ -476,25 +524,34 @@ max-widthプロパティは、ボックスの最大幅を設定するのに使�
  }
   .works-img {
     display: block;
-    width: 400px;
+    width: 300px;
     margin-right: 16px;
     }
-   ```  
-   
+  ```  
+ 
 display:flexで自動的に横に並ぶ  
 
 
+横に並んだボックスのうち、幅を伸縮させたい  
+```
 .works-img{
   flex: 1 1 auto;
 }
-横に並んだボックスのうち、幅を伸縮させたい  
+```  
 
+1.flex: 1 1 auto;と書く  
+
+
+横に並んだボックスのうち、幅を固定させたい 
+```
 .works-p{
   flex: 0 0 400px;
 }
-横に並んだボックスのうち、幅を固定させたいflex:0 0 固定幅  
+```  
+2.flex:0 0 固定幅 と書く  
 
 
+実用上はこの1.と2.の2パターンを覚えておけばよい  
 
 ## レスポンシブデザイン  
 
@@ -508,13 +565,14 @@ display:flexで自動的に横に並ぶ
 
 chromeブラウザを右クリックで検証し、端末ごとのサイズを見てみよう！  f12かその他のツールデベロッパツール
 
-せいぜい楽しんだら  
+楽しんだところで  
+
 ```
  <meta name="viewport" content="width=device-width, initial-scale=1" />
  ```  
  を<head>の中に記述する  
   
-  ビューポートは表示画面のこと  
+ ビューポート(viewport)は表示画面のこと  
   viewportを設定していないPC向けのページをスマートフォンで表示すると、文字もページも小さくなってしまいます。「viewport」の概念は、デスクトップPCだけの環境では意識する必要はあまりありませんでした。ですが、今はデスクトップPCよりタブレット等の使用頻度が高くなり、見やすくするためにそれぞれのデバイスでのズレがないように指定する必要が出てきました。
 設定されていないと、横幅いっぱいでおさまらないコンテンツや本文は横のスクロールがついて表示されてしまい、閲覧しにくくなってしまいます。そこで、viewportを指定することで、画面幅いっぱいにコンテンツや本文がおさまるようにしていくのです。  
 
@@ -527,11 +585,10 @@ chromeブラウザを右クリックで検証し、端末ごとのサイズを�
 <img>タグのcssを追加する  
 ```
 img {
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
 }
 ```  
-
 
 ブラウザ伸び縮みさせてみてー
 変わったのわかった？  
@@ -544,7 +601,6 @@ style.cssの一番下に@mediaを記述する
 
 }
 ```  
-
 
 @medhiaはメディアクエリといわれ()の条件をみたしたときに適用するスタイル  
 768pxはなに？  
@@ -582,7 +638,7 @@ style.cssの一番下に@mediaを記述する
 メディアクエリの中  
 ```
 .nav {
-  background-color: #dfddda;
+  background-color: transparent;/*背景を透明にする*/
 }
 
 .nav li{
