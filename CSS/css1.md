@@ -703,6 +703,9 @@ style.cssの一番下に@mediaを記述する
 
 ```  
 
+overflow-x:hidden　っで、x軸方向（横方向）にはみ出した部分を隠します。  
+
+
 最後text-align: centerで文字を真ん中にする  
 * ポートフォリオをだよ  
 * whoami  
