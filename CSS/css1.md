@@ -457,7 +457,7 @@ index.html
 style.css  
 ```
 .footer{
-  background-color: red;
+  background-color: yellow;
   margin-top: 30px;
   padding: 80px 15px 20px 15px;
   font-size: 12px;
