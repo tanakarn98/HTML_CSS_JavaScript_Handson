@@ -714,5 +714,5 @@ style.cssの一番下に@mediaを記述する
 
 おけー！！！！！CSS終わり！！
 
-[次へ進む]()  
+[JavaScript Handsonへ進む](https://github.com/CIST-LT-CLUB/HTML_CSS_JavaScript_Handson/blob/master/JavaScript/JavaScript1.md)  
 [最初に戻る](https://github.com/CIST-LT-CLUB/HTML_CSS_JavaScript_Handson)  
