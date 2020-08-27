@@ -10,7 +10,7 @@ HTMLがページのコンテンツを記述するための言語なのに対し�
 
 index.html  
 ```
-<p style="color: red;">ねこ</p>
+<p style="color: yellow;">ねこ</p>
 ```  
 ねこが赤くなる
 
@@ -21,7 +21,7 @@ index.html
   p{color: blue;}
 </style> 
 ```  
-ぞうが赤くなる
+ぞうが青くなる  
 など書ける  
 
 ### 基本は外部ファイルで書く
@@ -39,6 +39,8 @@ p {
 color: #ff0000;
 }
 ```  
+このようにカラーコードでも指定できる  
+
 
 cssの外部ファイルを読み込もう！  
 headに書こう！  
@@ -48,7 +50,7 @@ index.html
 <link rel="stylesheet" href="style.css">　
 ```  
 
-ねこの色がかわることを確認する  
+ねことぞうの色がかわることを確認する  
 
 
 ## CSSのクラス属性
@@ -244,7 +246,8 @@ px
 
 %
 スタイルを適用しないときの幅やフォントサイズと比べて何%の大きさで表示させるか  
-親要素が10pxのフォントのとき子要素で300%にすると3倍の大きさになる  
+親要素が10pxのフォントのとき子要素で300%にすると3倍の大きさになる 
+画像の縦横比を保ったまま画像サイズを変更できる  
 
 
 em
@@ -261,21 +264,21 @@ pxか%で雰囲気でいこう！(一番よくない)
 ![image](https://user-images.githubusercontent.com/44164993/91327998-3df06f00-e801-11ea-9b97-f3a7809fc5d8.png)  
 
 
-
+index.html
 ```
-<div class="oyayouso">
-<div class="koyouso">
+<div class="oyayouso"><!--親要素-->
+<div class="koyouso"><!--子要素-->
   習近平
 </div>
 </div>
 ```  
-
+style.css
 ```
 .oyayouso {
-  font-size: 10px;
+  background-color: blue;
 }
 .koyouso {
-  font-size: 300%;
+  background-color: yellow;
 }
 ```  
 
@@ -293,6 +296,7 @@ pxか%で雰囲気でいこう！(一番よくない)
 
 ## ロゴを真ん中に配置する  
 
+style.css
 ```
 .top{
   margin: 0 0 40px 0;
@@ -314,11 +318,16 @@ center left rigntなどある
 4辺のマージンの大きさを1行で設定できるmarginプロパティ  
 余白だね  
 
+lign-hegihtは文字の行間を変えられる  
+
+
+
+
 
 ## ナビゲーションバーをつくろう
 
 
-htmlの中  
+index.html  
 ```
 </head>
 <body>
@@ -357,9 +366,9 @@ padding-right: 30px;
 **list-style-type**  
 
 list-style-type:none;でナビゲーションバーのリストを消す  
-・あいう
-・えおか
-・きくけ
+・あいう  
+・えおか  
+・きくけ  
 の・が消える  
 
 **padding right**  
@@ -370,6 +379,7 @@ padding right: 30px;
 
 **ナビゲーションバーの固定**  
 
+style.css
 ```
  .nav{
   position: fixed;
@@ -378,6 +388,8 @@ padding right: 30px;
 
 ## ナビゲーションバーのリンクの色を変える  
 まずナビゲーションバーの遷移先を作ろう！  
+
+index.html  
 ```
 <nav class="nav">
   <ul>
@@ -390,6 +402,7 @@ padding right: 30px;
 ```  
 
 idをつけよう！  
+index.html  
 ```
 <div>class="top" id="top"</div>
 <div>class="portfolio" id="portfolio"</div>
@@ -399,6 +412,7 @@ idをつけよう！
 
 リンクの色を変える  
 
+style.css  
 ```
 .nav a:link{
   color: yellow;
@@ -486,11 +500,11 @@ max-widthプロパティは、ボックスの最大幅を設定するのに使�
 
 自己紹介の下にworksをつくる  
 ```
-<div>
+<div class="workscolor">
       <h2 id="works">works</h2>
       <div class="works">
-      <img src="3.jpg" alt="" class="works-img">
-      <p class="works-p">これはCISTLTサークルのホームページです。サークルメンバーでチーム開発をしました。React.jsをつかっています。</p>
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJUvYGK45eOFgPFlX7pin1W3ptz8jq5i02JA&usqp=CAU" alt="" class="works-img">
+      <p class="works-p">これはCISTLTサークルのホームページです。画像はサークルメンバーでチーム開発したローランドさんです。React.jsをつかっています。</p>
       </div>
 </div>
 ```  
@@ -515,17 +529,21 @@ display:blocksでブロック要素に変えられる
 
 画像とテキストを横に並べる  
 ```
+.workscolor{
+    background-color: aqua;
+    margin-bottom: 16px;
+  }
 .works{
     display: flex;
   }
-  .works-p {
-    border-bottom: 1px dashed #bec2c7;  
+  .works-p {  
     padding: 20px 8px;
  }
   .works-img {
     display: block;
     width: 300px;
     margin-right: 16px;
+    margin-left: 16px;
     }
   ```  
  
@@ -559,14 +577,20 @@ display:flexで自動的に横に並ぶ
 レスポンシブデザインという！  
 
 レスポンシブ3か条  
-*ページの横幅がウインドウに合わせて伸縮できる
-*表示できる面積に合わせて、画像を伸縮できる  
-*画面サイズに合わせて、最適なレイアウトに切り替える(スマホならナビゲーションバーが3本線のハンバーガーメニューになるとか)  
+* ページの横幅がウインドウに合わせて伸縮できる  
+* 表示できる面積に合わせて、画像を伸縮できる  
+* 画面サイズに合わせて、最適なレイアウトに切り替える(スマホならナビゲーションバーが3本線のハンバーガーメニューになるとか)  
 
-chromeブラウザを右クリックで検証し、端末ごとのサイズを見てみよう！  f12かその他のツールデベロッパツール
+chromeブラウザを右クリックで検証し、端末ごとのサイズを見てみよう！  f12かその他のツールデベロッパツール  
 
-楽しんだところで  
+楽しんだところでviewportを記述する  
 
+Emmet  
+```
+meta:vp
+```  
+
+index.html  
 ```
  <meta name="viewport" content="width=device-width, initial-scale=1" />
  ```  
@@ -585,10 +609,14 @@ chromeブラウザを右クリックで検証し、端末ごとのサイズを�
 <img>タグのcssを追加する  
 ```
 img {
-  max-width: 50%;
-  height: auto;
+  max-width: 50%;/*ブラウザの伸縮*/
+  height: auto; /*ブラウザの伸縮*/
+  margin-bottom: 16px;
 }
 ```  
+max-width: 50%;  
+height: auto;  
+画面の最大幅でも50%まで、高さは自動調整  
 
 ブラウザ伸び縮みさせてみてー
 変わったのわかった？  
@@ -645,6 +673,7 @@ style.cssの一番下に@mediaを記述する
   display: block;
 }
 ```  
+ナビゲーションバーの背景を透明にすることで背面の画面が見えるようになる  
 
 
 
@@ -664,6 +693,23 @@ style.cssの一番下に@mediaを記述する
   width: 100%;
 }
 ```  
+
+横揺れ防止を追加  
+メディアクエリの中  
+```
+ /*横揺れ防止*/
+  body{overflow-x:hidden;}
+  html{overflow-x:hidden;}
+
+```  
+
+最後text-align: centerで文字を真ん中にする  
+* ポートフォリオをだよ  
+* whoami  
+* works  
+* contactアクセス  
+* フッター  
+
 
 
 おけー！！！！！CSS終わり！！
