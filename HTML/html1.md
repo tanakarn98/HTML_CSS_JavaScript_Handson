@@ -71,5 +71,5 @@ divとの違いとして、`<div>` はブロック要素(前後に改行がは�
 ### td
 `<td>`タグは、表のデータセルを作成する際に使います。  
 
-[CSS Handsonへ進む]()  
+[CSS Handsonへ進む](https://github.com/CIST-LT-CLUB/HTML_CSS_JavaScript_Handson/blob/master/CSS/css1.md)  
 [最初に戻る](https://github.com/CIST-LT-CLUB/HTML_CSS_JavaScript_Handson/blob/master/README.md)  
