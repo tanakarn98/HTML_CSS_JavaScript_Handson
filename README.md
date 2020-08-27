@@ -21,7 +21,7 @@ HTMLとCSSとJavaScriptの技術を
 
 
 ## JavaScript編
-[]()  
+[JavaScriptの基本とAPIの利用](https://github.com/CIST-LT-CLUB/HTML_CSS_JavaScript_Handson/blob/master/JavaScript/JavaScript1.md)  
 
 
 
