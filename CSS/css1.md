@@ -575,8 +575,6 @@ display:flexで自動的に横に並ぶ
 ## 模写していこう！！！
 
 模写をすることで勉強したの知識をいれこむ
-![File](https://user-images.githubusercontent.com/44164993/93713113-eb526a80-fb94-11ea-98d6-5f7614c4b5c1.jpg)
-
 
 
 ## レスポンシブデザイン  
