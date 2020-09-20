@@ -631,7 +631,7 @@ height: auto;
 style.cssの一番下に@mediaを記述する  
 
 ```
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 76px) {
 （ここにモバイル用スタイルを記述）
 }
 ```  
