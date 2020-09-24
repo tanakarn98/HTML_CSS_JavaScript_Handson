@@ -69,8 +69,13 @@ divとの違いとして、`<div>` はブロック要素(前後に改行がは�
 `<li>`…リストの項目を記述  
     
 ### table td th
-`<td>`タグは、表のデータセルを作成する際に使います。  
-`<th>` テーブル（表）の見出しセルを作成する
+`<table>` テーブル(表)をつくる  
+`<td>`タグは、表のデータセルを作成する際に使います  
+`<th>` テーブル（表）の見出しセルを作成する  
+
+
 
 [CSS Handsonへ進む](https://github.com/CIST-LT-CLUB/HTML_CSS_JavaScript_Handson/blob/master/CSS/css1.md)  
 [最初に戻る](https://github.com/CIST-LT-CLUB/HTML_CSS_JavaScript_Handson/blob/master/README.md)  
+
+
