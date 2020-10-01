@@ -24,6 +24,7 @@ https://getbootstrap.jp/
 
 # 使うには読み込みが必要・・・  
 
+実際のコード
 ```
 <!doctype html>
 <html lang="ja">
@@ -39,7 +40,7 @@ https://getbootstrap.jp/
   </head>
   <body>
     <h1>Hello, world!</h1>
-     </body>
+  </body>
 </html>  
 ```  
 
@@ -49,7 +50,26 @@ https://portfolio-cistlt.web.app/
 
 
 # Navbar
+これ以降は<body></body>内に書いていきましょう！
+親要素に　
+```
+class="navbar"
+```  
+子要素に
+```
+class="navbar-item"
+``` 
+ページ内リンクは
+```
+<a href="#works"></a>
+``` 
+とすることで
+```
+<div id="works"></div>
+``` 
+のところまで飛んでくれるよ！
 
+実際のコード
 ```  
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand" href="">Top</a>
@@ -78,6 +98,36 @@ https://portfolio-cistlt.web.app/
 ```  
 
 # ヒーローエリア
+##背景色
+```
+<div class="bg-primary">青色になるよ</div>
+``` 
+##文字の中央寄せ
+``` 
+<p class="text-center">真ん中寄せになるよ</p>
+``` 
+まとめて真ん中寄せ
+``` 
+<div class="text-center>
+  <h2>yeah!</h2>
+  <p>wow!</p>
+</div>
+``` 
+
+##padding
+``` 
+<div class="p-5">上下左右にpaddingが設定されるよ</div>
+```
+##画像のソース
+どちらでもOK!
+``` 
+src="絶対パス"
+src="相対パス"
+```
+絶対パス とは・・・https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSq6KW6PvwJa8URGELal4IjFPENpJ0gr0JsVQ&usqp=CAU
+相対パス とは・・・自分のパソコンにダウンロードして、ファイルに入れた画像の場所　"./assets/images/dog.jpg"
+
+実際のコード
 ```  
 <div class="bg-primary text-center p-5">
    <h2>logoロゴ</h2>
@@ -88,7 +138,10 @@ https://portfolio-cistlt.web.app/
     <h1 id="portfolio">ポートフォリオだよ</h1><!--大見出し-->
 </div>
 ```  
+
+
 # 自己紹介
+実際のコード
 ``` 
 <div class=" bg-success text-center p-5">
    <h2 id="whoami">whoami自己紹介</h2>
@@ -96,19 +149,38 @@ https://portfolio-cistlt.web.app/
 </div>
 ```  
 # WORKS
+##gird
+いい感じに並べてくれるくん
+親要素
+```
+<div class="row"></div> 
+```
+子要素
+いくつでも増やせる！
+```
+<div class="col"></div> 
+```
+
+##改行
+あんまりよくないけど<br>が便利！
+ほんとは改行したい文章ごとに<p></p>で囲おう！
+
+実際のコード
 ```
 <div class="bg-warning text-center p-5">
    <h2 id="works">works</h2>
    <!--gridですよ-->
-   <div class="container">
-      <div class="row">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJUvYGK45eOFgPFlX7pin1W3ptz8jq5i02JA&usqp=CAU" alt="" class="col">
-      <p class="col">これはCISTLTサークルのホームページです。<br>画像はサークルメンバーでチーム開発したローランドさんです。<br>React.jsをつかっています。</p>
-      </div>
+   
+   <div class="row">
+   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJUvYGK45eOFgPFlX7pin1W3ptz8jq5i02JA&usqp=CAU" alt="" class="col">
+   <p class="col">これはCISTLTサークルのホームページです。<br>画像はサークルメンバーでチーム開発したローランドさんです。<br>React.jsをつかっています。</p>
    </div>
+   
 </div>
 ```  
+
 # CONTACT
+実際のコード
 ``` 
 <div class=" bg-danger text-center p-5">
      <h2 id="contact">contactアクセス</h2>
@@ -117,8 +189,9 @@ https://portfolio-cistlt.web.app/
 ```  
 
 # Footer
+実際のコード
 ```
-<footer class="footer bg-info text- p-5">
-      <p>&copy:Copyright CISTLT. ALL rights reserved</p>
+<footer class="footer bg-info text-center p-5">
+      <p>&copy:2020 CISTLT. ALL rights reserved</p>
 </footer>
 ``` 
